@@ -27,7 +27,7 @@ return [
             'rotacategoria' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/categoria[/:action]',
+                    'route'    => '/categoria[/:action[/:id]]',
                     'defaults' => [
                         'controller' => Controller\CategoriaController::class,
                         'action'     => 'index',
