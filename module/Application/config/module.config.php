@@ -24,12 +24,12 @@ return [
                     ],
                 ],
             ],
-            'application' => [
+            'rotacategoria' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/application[/:action]',
+                    'route'    => '/categoria[/:action]',
                     'defaults' => [
-                        'controller' => Controller\IndexController::class,
+                        'controller' => Controller\CategoriaController::class,
                         'action'     => 'index',
                     ],
                 ],
