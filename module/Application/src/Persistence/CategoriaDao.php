@@ -21,8 +21,18 @@ class CategoriaDao {
         return $this->table->insert($data);
     }
 
-    public function listar() {
-        return $this->table->select();
+    public function listarCategoriasDespesa() {
+        $sql="select nome from categoria where tipo = 'despesa'";
+
+        return $this->table->getAdapter()->getDriver()
+                        ->getConnection()->execute($sql);
+    }
+    
+    public function listarCategoriasReceita() {
+        $sql="select nome from categoria where tipo = 'receita'";
+
+        return $this->table->getAdapter()->getDriver()
+                        ->getConnection()->execute($sql);
     }
 /*
     public function buscar($nome = ""){

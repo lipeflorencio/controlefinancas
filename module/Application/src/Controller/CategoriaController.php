@@ -17,6 +17,11 @@ class CategoriaController extends AbstractActionController
     public function indexAction()
     {
         $view = new ViewModel();
+        
+        $categoriaDao = new CategoriaDao($this->db);
+        $view->setVariable("listaCategoriasDespesa",$categoriaDao->listarCategoriasDespesa());
+        $view->setVariable("listaCategoriasReceita",$categoriaDao->listarCategoriasReceita());
+        $view->setTemplate("application/categoria/index.phtml");
         return $view;
     }
 
@@ -38,7 +43,8 @@ class CategoriaController extends AbstractActionController
                 $view->setVariable("resp", "Erro ao cadastrar");
             }
         }
-        $view->setVariable("lista",$categoriaDao->listar());
+        $view->setVariable("listaCategoriasDespesa",$categoriaDao->listarCategoriasDespesa());
+        $view->setVariable("listaCategoriasReceita",$categoriaDao->listarCategoriasReceita());
         $view->setTemplate("application/categoria/index.phtml");
         return $view;
     }
