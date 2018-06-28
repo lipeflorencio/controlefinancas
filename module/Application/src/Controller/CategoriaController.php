@@ -49,7 +49,23 @@ class CategoriaController extends AbstractActionController
         return $view;
     }
     
-        public function editarAction()
+    public function buscarAction()
+    {
+        $view = new ViewModel();
+        $id = $this->params()->fromRoute("id");
+        $categoriaDao = new CategoriaDao($this->db);
+        if($this->getRequest()->isPost()) {
+            $nome = $this->getRequest()->getPost("nome");
+            $lista = $fd->buscar($nome);
+
+            $view->setVariable("nome", $nome);
+        }
+
+        $view->setVariable("lista", $lista);
+        return $view;
+    }
+    
+    public function editarAction()
     {
         $view = new ViewModel();
         return $view;

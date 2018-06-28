@@ -1,6 +1,7 @@
 <h3>Categorias</h3>
 <hr>
-<a class="btn btn-primary btn-primary" data-toggle="modal" data-target="#cadastrarModal" data-whatever="Nova"><span class="glyphicon glyphicon-plus"></span> Cadastrar Categoria</a>
+<a class="btn btn-primary btn-primary" data-toggle="modal" data-target="#cadastrarModal" data-whatever="0">
+    <span class="glyphicon glyphicon-plus"></span> Cadastrar Categoria</a>
 <br><br>
 <div class="row">
     <div class="col-md-6">
@@ -12,7 +13,7 @@
                         <tr>
                             <td style="width:90%"><?=$categoriaDespesa["nome"]?></td>
                             <td>            
-                                <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#cadastrarModal" data-whatever="Editar">
+                                <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#cadastrarModal" data-whatever="<?=$categoriaDespesa["id"]?>">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </button>
                             </td>
@@ -36,7 +37,7 @@
                         <tr>
                             <td style="width:90%"><?=$categoriaReceita["nome"]?></td>
                             <td>            
-                                <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#cadastrarModal" data-whatever="Editar">
+                                <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#cadastrarModal" data-whatever="<?=$categoriaDespesa["id"]?>">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </button>
                             </td>

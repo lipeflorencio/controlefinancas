@@ -34,13 +34,26 @@
 </div>
 
 <script>
-    //$('#cadastrarModal').on('show.bs.modal', function (event) {
-		//var button = $(event.relatedTarget); // Button that triggered the modal
-		//var recipient = button.data('whatever'); // Extract info from data-* attributes
-		// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-		// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-		//var modal = $(this);
-		//modal.find('.modal-title').text(recipient + ' Categoria');
-		//modal.find('.modal-body input').val(recipient);
+    $('#cadastrarModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var recipient = button.data('whatever'); // Extract info from data-* attributes
+
+        if( recipient <> 0){
+            //Enviar os dados POR POST para o controller
+            $.post('<?php echo $this->url('rotacategoria', [
+                        'action' => 'cadastrar'
+                    ]); ?>', {
+                nome : nome,
+                cpf : cpf,
+                salario : salario
+            }, function(callback) {
+                //Esta função é chamada quando a requisição terminar
+                //procurar um elemento id="resp" e vai escrever no elemento
+                $("#resp").html(callback);
+            })
+            //Por um botao SUBMIT chamar a função, devo retornar false para
+            //que a pagina não seja recarregada
+            return false;
+        }
     });
 </script>

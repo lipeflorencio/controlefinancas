@@ -22,14 +22,14 @@ class CategoriaDao {
     }
 
     public function listarCategoriasDespesa() {
-        $sql="select nome from categoria where tipo = 'despesa'";
+        $sql="select id,nome from categoria where tipo = 'despesa'";
 
         return $this->table->getAdapter()->getDriver()
                         ->getConnection()->execute($sql);
     }
     
     public function listarCategoriasReceita() {
-        $sql="select nome from categoria where tipo = 'receita'";
+        $sql="select id,nome from categoria where tipo = 'receita'";
 
         return $this->table->getAdapter()->getDriver()
                         ->getConnection()->execute($sql);
@@ -59,13 +59,13 @@ class CategoriaDao {
                         ->getConnection()->execute($sql);
     }
 */
-/*    
+ 
     public function buscarId($id = 0){
         $select = $this->table->select(['id' => $id]);
         $row = $select->current();
         return $row;
     }
- */
+
 /*    
     public function atualizar(\Application\Model\Funcionario $f) {
         $data = [
