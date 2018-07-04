@@ -35,7 +35,30 @@
 
 <script>
     $('#cadastrarModal').on('show.bs.modal', function (event) {
+<<<<<<< HEAD
         $('#tipo').val("");
         $('#nome').val("");
+=======
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var recipient = button.data('whatever'); // Extract info from data-* attributes
+
+        if( recipient <> 0){
+            //Enviar os dados POR POST para o controller
+            $.post('<?php echo $this->url('rotacategoria', [
+                        'action' => 'cadastrar'
+                    ]); ?>', {
+                nome : nome,
+                cpf : cpf,
+                salario : salario
+            }, function(callback) {
+                //Esta função é chamada quando a requisição terminar
+                //procurar um elemento id="resp" e vai escrever no elemento
+                $("#resp").html(callback);
+            })
+            //Por um botao SUBMIT chamar a função, devo retornar false para
+            //que a pagina não seja recarregada
+            return false;
+        }
+>>>>>>> 6a60525c5bfe37582e4901caf922c0811a0383e2
     });
 </script>

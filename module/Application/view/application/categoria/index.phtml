@@ -1,7 +1,12 @@
 <h3>Categorias</h3>
 <?= $this->resp ?>
 <hr>
+<<<<<<< HEAD
 <a class="btn btn-primary btn-primary" data-toggle="modal" data-target="#cadastrarModal"><span class="glyphicon glyphicon-plus"></span> Cadastrar Categoria</a>
+=======
+<a class="btn btn-primary btn-primary" data-toggle="modal" data-target="#cadastrarModal" data-whatever="0">
+    <span class="glyphicon glyphicon-plus"></span> Cadastrar Categoria</a>
+>>>>>>> 6a60525c5bfe37582e4901caf922c0811a0383e2
 <br><br>
 <div class="row">
     <div class="col-md-6">
@@ -13,7 +18,11 @@
                         <tr>
                             <td style="width:90%"><?=$categoriaDespesa["nome"]?></td>
                             <td>            
+<<<<<<< HEAD
                                 <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editarModal" data-id="<?=$categoriaDespesa["id"]?>">
+=======
+                                <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#cadastrarModal" data-whatever="<?=$categoriaDespesa["id"]?>">
+>>>>>>> 6a60525c5bfe37582e4901caf922c0811a0383e2
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </button>
                             </td>
@@ -39,16 +48,26 @@
                         <tr>
                             <td style="width:90%"><?=$categoriaReceita["nome"]?></td>
                             <td>            
+<<<<<<< HEAD
                                 <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editarModal" data-id="<?=$categoriaReceita["id"]?>">
+=======
+                                <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#cadastrarModal" data-whatever="<?=$categoriaDespesa["id"]?>">
+>>>>>>> 6a60525c5bfe37582e4901caf922c0811a0383e2
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </button>
                             </td>
                             <td>
+<<<<<<< HEAD
                                 <a class="btn btn-danger btn-xs" href="<?=$this->url('rotacategoria', [
                                         'action' => 'excluir', 'id' => $categoriaReceita["id"]
                                     ])?>">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </a>
+=======
+                                <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+>>>>>>> 6a60525c5bfe37582e4901caf922c0811a0383e2
                             </td>
                         </tr>
                     <?php endforeach; ?>

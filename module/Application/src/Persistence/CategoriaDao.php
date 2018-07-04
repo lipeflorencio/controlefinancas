@@ -22,14 +22,22 @@ class CategoriaDao {
     }
 
     public function listarCategoriasDespesa() {
+<<<<<<< HEAD
         $sql="select id, nome from categoria where tipo = 'despesa'";
+=======
+        $sql="select id,nome from categoria where tipo = 'despesa'";
+>>>>>>> 6a60525c5bfe37582e4901caf922c0811a0383e2
 
         return $this->table->getAdapter()->getDriver()
                         ->getConnection()->execute($sql);
     }
     
     public function listarCategoriasReceita() {
+<<<<<<< HEAD
         $sql="select id, nome from categoria where tipo = 'receita'";
+=======
+        $sql="select id,nome from categoria where tipo = 'receita'";
+>>>>>>> 6a60525c5bfe37582e4901caf922c0811a0383e2
 
         return $this->table->getAdapter()->getDriver()
                         ->getConnection()->execute($sql);
@@ -59,15 +67,25 @@ class CategoriaDao {
                         ->getConnection()->execute($sql);
     }
 */
+<<<<<<< HEAD
    
+=======
+ 
+>>>>>>> 6a60525c5bfe37582e4901caf922c0811a0383e2
     public function buscarId($id = 0){
         $sql="select tipo, nome from categoria where id = ". $id;
 
         return $this->table->getAdapter()->getDriver()
                         ->getConnection()->execute($sql);
     }
+<<<<<<< HEAD
    
     public function atualizar(Categoria $categoria) {
+=======
+
+/*    
+    public function atualizar(\Application\Model\Funcionario $f) {
+>>>>>>> 6a60525c5bfe37582e4901caf922c0811a0383e2
         $data = [
             'tipo' => $categoria->getTipo(),
             'nome' => $categoria->getNome(),

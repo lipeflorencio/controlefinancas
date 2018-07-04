@@ -52,6 +52,7 @@ class CategoriaController extends AbstractActionController
     
     public function buscarAction()
     {
+<<<<<<< HEAD
         $categoriaDao = new CategoriaDao($this->db);
         if($this->getRequest()->isPost()) {            
             $id = $this->getRequest()->getPost("id");
@@ -63,6 +64,20 @@ class CategoriaController extends AbstractActionController
             'status' => 'SUCCESS',
             'data' => [$row]
         ]);
+=======
+        $view = new ViewModel();
+        $id = $this->params()->fromRoute("id");
+        $categoriaDao = new CategoriaDao($this->db);
+        if($this->getRequest()->isPost()) {
+            $nome = $this->getRequest()->getPost("nome");
+            $lista = $fd->buscar($nome);
+
+            $view->setVariable("nome", $nome);
+        }
+
+        $view->setVariable("lista", $lista);
+        return $view;
+>>>>>>> 6a60525c5bfe37582e4901caf922c0811a0383e2
     }
     
     public function editarAction()
