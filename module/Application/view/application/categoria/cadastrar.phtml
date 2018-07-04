@@ -2,11 +2,11 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header alert-info">
-                <h3 class="modal-title" id="cadastrarModalLabel">Nova Categoria
+                <h3 class="modal-title" id="cadastrarModalLabel">Cadastrar Categoria</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </h3>
+                
             </div>
             <form method="post" action="<?php echo $this->url('rotacategoria', [
                         'action' => 'cadastrar'
@@ -14,7 +14,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">Tipo:</label>
-                        <select name="tipo" id="tipo" class="form-control">
+                        <select name="tipo" id="tipo" class="form-control" required>
                             <option value=""></option>
                             <option value="despesa">Despesa</option>
                             <option value="receita">Receita</option>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nome" class="col-form-label">Nome:</label>
-                        <input type="text" class="form-control" id="nome" name="nome">
+                        <input type="text" class="form-control" id="nome" name="nome" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -34,13 +34,8 @@
 </div>
 
 <script>
-    //$('#cadastrarModal').on('show.bs.modal', function (event) {
-		//var button = $(event.relatedTarget); // Button that triggered the modal
-		//var recipient = button.data('whatever'); // Extract info from data-* attributes
-		// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-		// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-		//var modal = $(this);
-		//modal.find('.modal-title').text(recipient + ' Categoria');
-		//modal.find('.modal-body input').val(recipient);
+    $('#cadastrarModal').on('show.bs.modal', function (event) {
+        $('#tipo').val("");
+        $('#nome').val("");
     });
 </script>

@@ -21,8 +21,18 @@ class CategoriaDao {
         return $this->table->insert($data);
     }
 
-    public function listar() {
-        return $this->table->select();
+    public function listarCategoriasDespesa() {
+        $sql="select id, nome from categoria where tipo = 'despesa'";
+
+        return $this->table->getAdapter()->getDriver()
+                        ->getConnection()->execute($sql);
+    }
+    
+    public function listarCategoriasReceita() {
+        $sql="select id, nome from categoria where tipo = 'receita'";
+
+        return $this->table->getAdapter()->getDriver()
+                        ->getConnection()->execute($sql);
     }
 /*
     public function buscar($nome = ""){
@@ -49,27 +59,23 @@ class CategoriaDao {
                         ->getConnection()->execute($sql);
     }
 */
-/*    
+   
     public function buscarId($id = 0){
-        $select = $this->table->select(['id' => $id]);
-        $row = $select->current();
-        return $row;
+        $sql="select tipo, nome from categoria where id = ". $id;
+
+        return $this->table->getAdapter()->getDriver()
+                        ->getConnection()->execute($sql);
     }
- */
-/*    
-    public function atualizar(\Application\Model\Funcionario $f) {
+   
+    public function atualizar(Categoria $categoria) {
         $data = [
-            'nome' => $f->getNome(),
-            'email' => $f->getEmail(),
-            'salario' => $f->getSalario(),
-            'id_cargo' => $f->getCargo()->getIdCargo(),
+            'tipo' => $categoria->getTipo(),
+            'nome' => $categoria->getNome(),
         ];
-        return $this->table->update($data, 'id = ' . $f->getId());
+        return $this->table->update($data, 'id = ' . $categoria->getId());
     }
-*/
-/*    
+    
     public function excluir($id = 0){
         return $this->table->delete("id = " . $id);
     } 
- */
 }
