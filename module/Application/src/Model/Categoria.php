@@ -31,17 +31,5 @@ class Categoria {
         return $this;
     }
 
-    public function validate(){
-        $error = [];
-        if($this->nome == ""){
-            $error[] = "Preencha o campo nome";
-        }
-
-        if($this->tipo == ""){
-            $error[] = "Preencha o campo tipo";
-        }
-
-        return $error;
-    }
 
 }
