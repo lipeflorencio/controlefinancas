@@ -39,9 +39,15 @@ class CategoriaController extends AbstractActionController
 
             $categoriaDao = new CategoriaDao($this->db);
             if($categoriaDao->cadastrar($categoria)){
-                $view->setVariable("resp","<div class='alert alert-success'>" . "Categoria cadastrada com sucesso</div>");
+                $resp = "<div class='alert alert-success alert-dismissible'>" . 
+                        "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" .
+                        "Categoria cadastrada com sucesso!</div>";
+                $view->setVariable("resp", $resp);
             }else{
-                $view->setVariable("resp", "Erro ao cadastrar");
+                $resp = "<div class='alert alert-danger alert-dismissible'>" . 
+                        "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" .
+                        "Erro ao cadastrar!</div>";
+                $view->setVariable("resp", $resp);
             }
         }
         $view->setVariable("listaCategoriasDespesa",$categoriaDao->listarCategoriasDespesa());
@@ -82,9 +88,15 @@ class CategoriaController extends AbstractActionController
             $categoria->setNome($nome);
 
             if($categoriaDao->atualizar($categoria)){
-                $view->setVariable("resp","<div class='alert alert-success'>" . "Categoria editada com sucesso</div>");
+                $resp = "<div class='alert alert-success alert-dismissible'>" . 
+                        "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" .
+                        "Categoria editada com sucesso!</div>";
+                $view->setVariable("resp", $resp);
             }else{
-                $view->setVariable("resp", "Erro ao editar");
+                $resp = "<div class='alert alert-danger alert-dismissible'>" . 
+                        "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" .
+                        "Erro ao editar!</div>";
+                $view->setVariable("resp", $resp);
             }
         }
         $view->setVariable("listaCategoriasDespesa",$categoriaDao->listarCategoriasDespesa());
@@ -100,11 +112,15 @@ class CategoriaController extends AbstractActionController
         $id = $this->params()->fromRoute("id");
         $categoriaDao = new CategoriaDao($this->db);
         $categoriaDao->excluir($id);
+        
+        $resp = "<div class='alert alert-success alert-dismissible'>" . 
+                "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>" .
+                "Categoria excluída com sucesso!</div>";
+        $view->setVariable("resp", $resp);
 
         $view->setVariable("listaCategoriasDespesa",$categoriaDao->listarCategoriasDespesa());
         $view->setVariable("listaCategoriasReceita",$categoriaDao->listarCategoriasReceita());
         $view->setTemplate("application/categoria/index.phtml");
-        $view->setVariable("resp","<div class='alert alert-success'>" . "Categoria excluída com sucesso</div>");
         
         return $view;
     }

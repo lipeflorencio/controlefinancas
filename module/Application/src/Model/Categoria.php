@@ -3,6 +3,10 @@
 namespace Application\Model;
 
 class Categoria {
+    
+    private $id;
+    private $tipo;
+    private $nome;
 
     public function getId() {
         return $this->id;

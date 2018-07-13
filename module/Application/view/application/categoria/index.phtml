@@ -18,10 +18,9 @@
                                 </button>
                             </td>
                             <td>
-                                <a class="btn btn-danger btn-xs" href="<?=$this->url('rotacategoria', [
-                                        'action' => 'excluir', 'id' => $categoriaDespesa["id"]
-                                    ])?>">
+                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#excluirModal" data-id="<?=$categoriaDespesa["id"]?>" data-categoria="<?=$categoriaDespesa["nome"]?>">
                                     <span class="glyphicon glyphicon-trash"></span>
+                                </button>
                                 </a>
                             </td>
                         </tr>
@@ -44,9 +43,7 @@
                                 </button>
                             </td>
                             <td>
-                                <a class="btn btn-danger btn-xs" href="<?=$this->url('rotacategoria', [
-                                        'action' => 'excluir', 'id' => $categoriaReceita["id"]
-                                    ])?>">
+                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#excluirModal" data-id="<?=$categoriaReceita["id"]?>" data-categoria="<?=$categoriaReceita["nome"]?>">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </a>
                             </td>
@@ -61,4 +58,5 @@
 <?php 
     include_once "cadastrar.phtml";
     include_once "editar.phtml";
+    include_once "excluir.phtml";
 ?>

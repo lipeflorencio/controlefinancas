@@ -1,16 +1,16 @@
-<div class="modal fade" id="cadastrarModal" tabindex="-1" role="dialog" aria-labelledby="cadastrarModalLabel" aria-hidden="true" data-backdrop="static">
-    <div class="modal-dialog" role="document">
+<!-- Modal -->
+<div id="cadastrarModal" class="modal fade" data-backdrop="static">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header alert-info">
-                <h3 class="modal-title" id="cadastrarModalLabel">Cadastrar Categoria</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" id="cadastrarModalLabel">Cadastrar Categoria</h4>
             </div>
             <form method="post" action="<?php echo $this->url('rotacategoria', [
-                        'action' => 'cadastrar'
-                    ]); ?>">
+                    'action' => 'cadastrar'
+                ]); ?>">
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">Tipo:</label>
@@ -29,10 +29,11 @@
                     <input type="submit" value="Gravar" class="btn btn-primary">
                 </div>
             </form>
+
         </div>
+
     </div>
 </div>
-
 <script>
     $('#cadastrarModal').on('show.bs.modal', function (event) {
         $('#tipo').val("");
