@@ -1,0 +1,38 @@
+<!-- Modal -->
+<div id="excluirModal" class="modal fade" data-backdrop="static">
+
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+            <div class="modal-header alert-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="cadastrarModalLabel">Excluir Categoria</h4>
+            </div>
+
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-danger" id="delete">Sim</a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Não</button>                
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    var id = 0;
+    $('#excluirModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); 
+        var categoria = button.data('categoria'); 
+        id = button.data('id');
+        var msg = 'Deseja excluir a Categoria ' + categoria + '?';
+        var modal = $(this);
+        modal.find('.modal-body p').text(msg);
+    });
+    $("#delete").click(function(){
+        var pagina = "<?=$this->url('rotacategoria', ['action' => 'excluir'])?>/" + id;
+        $("#delete").attr("href",pagina);
+    });
+</script>
+

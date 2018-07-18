@@ -1,0 +1,38 @@
+<h3>Contatos</h3>
+<?= $this->resp ?>
+<hr>
+<a class="btn btn-primary btn-primary" data-toggle="modal" data-target="#cadastrarModal"><span class="glyphicon glyphicon-plus"></span> Cadastrar Categoria</a>
+<br><br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Despesas</div>
+            <?php if(isset($this->listaCategoriasDespesa) && count($this->listaCategoriasDespesa) > 0) : ?>
+                <table class="table table-hover">
+                    <?php foreach($this->listaCategoriasDespesa as $categoriaDespesa) : ?>
+                        <tr>
+                            <td style="width:90%"><?=$categoriaDespesa["nome"]?></td>
+                            <td>            
+                                <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editarModal" data-id="<?=$categoriaDespesa["id"]?>">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#excluirModal" data-id="<?=$categoriaDespesa["id"]?>" data-categoria="<?=$categoriaDespesa["nome"]?>">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+                <?php endif; ?>
+        </div>
+    </div>
+</div>
+
+<?php 
+    include_once "cadastrar.phtml";
+    include_once "editar.phtml";
+    include_once "excluir.phtml";
+?>
